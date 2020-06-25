@@ -23,6 +23,7 @@
   }
   
   function resetExample() {
+    // NOTE: Svelte also has built in support for unsubscribing fron subscriptions
     if (subscription) subscription.unsubscribe();
 	  result = initialState;
 	}

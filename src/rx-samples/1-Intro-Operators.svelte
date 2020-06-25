@@ -1,6 +1,6 @@
 <script>
   import { from } from 'rxjs';
-  import { filter, map, reduce, delay, startWith } from 'rxjs/operators';
+  import { filter, map, reduce, delay, startWith, tap } from 'rxjs/operators';
 
   const initialState = [];
   let valuesLeft = initialState;
@@ -9,13 +9,15 @@
   const observable1 = from([0,1,2,3]).pipe(
     filter(e =>  e > 0 ), 
     map(e => e * 2), 
+    tap(e => console.log(`Tap: ${e}`)), // The tap operator enables running side effects
+    //scan((acc, one) => acc + one, 0), // Returns accumulated result on every event
     //reduce((acc, one) => acc + one, 0), // Only returns result after sequence completes
   );
 
   const observable2 = from([0,1,2,3]).pipe(
     delay(1000), 
     map(e => e * 2), 
-    //startWith(-1), 
+    //startWith(-1), // If we need an initial value until data has "loaded"
     //reduce((acc, one) => acc + one, 0), // Only returns result after sequence completes
   );
 
