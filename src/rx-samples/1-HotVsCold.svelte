@@ -19,7 +19,9 @@
        subscriber.next("Is there anybody out there?");
        subscriber.complete();
     }, 3000);
-    return () => { observableMessages = [...observableMessages, `** UNSUBSCRIBED OBSERVABLE ${id} **`]; }
+    return () => { 
+      observableMessages = [...observableMessages, `** UNSUBSCRIBED OBSERVABLE ${id} **`]; 
+    }
   });
 
   let hotObservable = observable.pipe(publish()); // Convert into HOT (and multicast) observable by "publishing it"
@@ -60,7 +62,7 @@
 
 <main>
 	
-	<h1>Intro Subscriptions</h1>
+	<h1>Hot Vs Cold</h1>
 
 	<div class="grid">
 		<div class="item">

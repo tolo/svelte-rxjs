@@ -17,7 +17,7 @@
         subscriber.next(`Talk to you later ${name}`)
         subscriber.complete();
       }, 3000);
-  });
+    });
   }
 
   function runExample() {

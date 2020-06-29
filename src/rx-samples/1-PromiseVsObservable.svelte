@@ -13,16 +13,17 @@
   });
 
   const observable = new Observable(subscriber => {
-    subscriber.next("Hello");
-    subscriber.next("...")
-    subscriber.next("Is there anybody out there?");
-    subscriber.complete(); // subscriber.error();
-    // setTimeout(() => subscriber.next("Hello"), 1000);
-    // setTimeout(() => subscriber.next("..."), 2000);
-    // setTimeout(() => {
-    //   subscriber.next("Is there anybody out there?");
-    //   subscriber.complete();
-    // }, 3000);
+    // subscriber.next("Hello");
+    // subscriber.next("...")
+    // subscriber.next("Is there anybody out there?");
+    // subscriber.complete(); // subscriber.error();
+    setTimeout(() => subscriber.next("Hello"), 1000);
+    setTimeout(() => subscriber.next("..."), 2000);
+    setTimeout(() => {
+      subscriber.error();
+      // subscriber.next("Is there anybody out there?");
+      // subscriber.complete();
+    }, 3000);
   });
 
   function runExample() {
@@ -30,12 +31,12 @@
     promise.then((v) => {
       valuesLeft = [...valuesLeft, ...v]
     })
-    .catch(() => {
-      valuesLeft = [...valuesLeft, "ERROR"];
-    })
-    .finally(() => {
-      valuesLeft = [...valuesLeft, "Done"];
-    });
+    // .catch(() => {
+    //   valuesLeft = [...valuesLeft, "ERROR"];
+    // })
+    // .finally(() => {
+    //   valuesLeft = [...valuesLeft, "Done"];
+    // });
 
     observable.subscribe((v) => {
       valuesRight = [...valuesRight, v]

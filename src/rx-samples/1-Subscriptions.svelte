@@ -11,7 +11,7 @@
     setTimeout(() => subscriber.next("..."), 2000);
     setTimeout(() => {
        subscriber.next("Is there anybody out there?");
-       //subscriber.complete(); // TODO: Complete the sequence and see what happens
+       subscriber.complete(); // TODO: Complete the sequence and see what happens
     }, 3000);
     return () => { result = [...result, "** UNSUBSCRIBED **"]; }
   });

@@ -10,7 +10,7 @@
   function runExample() {
     const subject1 = new Subject();
     const subject2 = new BehaviorSubject("Initial");
-    const subject3 = new ReplaySubject(3);
+    const subject3 = new ReplaySubject(1);
 
     // Setup first subscription
     results1 = ["** Running **"];

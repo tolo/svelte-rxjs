@@ -22,7 +22,7 @@
   });
 
   const sharedObservable = observable.pipe(share()); // Same as multicast + refcount - will unsubscribe from the underlying observable when there are no more subscriptiobs
-  const shareReplayObservable = observable.pipe(shareReplay(3));
+  const shareReplayObservable = observable.pipe(shareReplay(1));
 
   function runShareExample() {
     _runExample(sharedObservable);

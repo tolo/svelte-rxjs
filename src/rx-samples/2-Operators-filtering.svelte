@@ -18,8 +18,7 @@
     // Setup first subscription
     observable.pipe(
       throttle(() => interval(500)), 
-    )
-    .subscribe(v => valuesLeft = [...valuesLeft, v]);
+    ).subscribe(v => valuesLeft = [...valuesLeft, v]);
     
     // Setup second subscription
     observable.pipe(
