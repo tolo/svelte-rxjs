@@ -1,5 +1,7 @@
+// A simple hash based router implementation, utilizing the Obserable-like 'store' object in Svelte
 import { writable } from 'svelte/store';
 
+// Create a wriable store for the current coute
 export const currentRoute = writable('/');
 
 export function initRouting() {
